@@ -20,8 +20,8 @@ import org.openjdk.jmh.annotations.Warmup;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Fork(value = 2, jvmArgs = { "-Xms4G", "-Xmx4G" })
-@Measurement(iterations = 2)
-@Warmup(iterations = 3)
+@Measurement(iterations = 5)
+@Warmup(iterations = 5)
 public class ParallelStreamBenchmark {
 
     private static final long N = 10_000_000L;
@@ -52,6 +52,13 @@ public class ParallelStreamBenchmark {
     @Benchmark
     public long rangedSum(){
         return LongStream.rangeClosed(1, N)
+                        .reduce(0L, Long::sum);
+    }
+
+    @Benchmark
+    public long parallelRangedSum(){
+        return LongStream.rangeClosed(1, N)
+                        .parallel()
                         .reduce(0L, Long::sum);
     }
 
