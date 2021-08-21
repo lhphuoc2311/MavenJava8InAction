@@ -19,6 +19,20 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-generator-annprocess</artifactId>
+      
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-core</artifactId>
+      
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -96,4 +110,22 @@
       </plugins>
     </pluginManagement>
   </build>
+
+
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-generator-annprocess</artifactId>
+        <version>1.17.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-core</artifactId>
+        <version>1.17.4</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
