@@ -40,6 +40,14 @@ public class ParallelStreamBenchmark {
         return result;
     }
 
+    @Benchmark
+    public long parallelSum(){
+        return Stream.iterate(1L, num -> num +1)
+                    .limit(N)
+                    .parallel()
+                    .reduce(0L, Long::sum);
+    }
+
     @TearDown(Level.Invocation)
     public void tearDown() {
         System.gc();
