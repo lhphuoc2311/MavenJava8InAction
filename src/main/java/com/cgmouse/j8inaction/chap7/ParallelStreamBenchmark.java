@@ -9,8 +9,11 @@ import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.TearDown;
 
+@State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Fork(value = 2, jvmArgs ={"-Xms4G", "-Xmx4G"})
@@ -20,7 +23,7 @@ public class ParallelStreamBenchmark {
 
     //using internal iterative stream
     @Benchmark
-    public static long sequentialSum() {
+    public long sequentialSum() {
         return Stream.iterate(1L, num -> num + 1)
         .limit(N)
         .reduce(0L, Long::sum);
@@ -30,6 +33,5 @@ public class ParallelStreamBenchmark {
     public void tearDown(){
         System.gc();
     }
-
     
 }
