@@ -1,6 +1,7 @@
 package com.cgmouse.j8inaction.chap7;
 
 import java.util.concurrent.TimeUnit;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -47,6 +48,13 @@ public class ParallelStreamBenchmark {
                     .parallel()
                     .reduce(0L, Long::sum);
     }
+
+    @Benchmark
+    public long rangedSum(){
+        return LongStream.rangeClosed(1, N)
+                        .reduce(0L, Long::sum);
+    }
+
 
     @TearDown(Level.Invocation)
     public void tearDown() {
