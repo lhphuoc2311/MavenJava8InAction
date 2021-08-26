@@ -7,6 +7,7 @@ public class ExecutingBlockCodeWithRunnable {
     public static void main(String[] args) {
 
         //using anonymous class containing a run method
+        //using interface Runnable to represent a block code to be executed
         Thread t = new Thread(new Runnable(){
 
             @Override
@@ -16,7 +17,7 @@ public class ExecutingBlockCodeWithRunnable {
             
         });
         t.run();
-        
+
     }
 
     
