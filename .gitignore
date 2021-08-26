@@ -27,3 +27,4 @@ hs_err_pid*
 .vscode
 target
 src/main/java/com/cgmouse/j8inaction/chap7/ParallelStreamsHarness.java
+.factorypath
