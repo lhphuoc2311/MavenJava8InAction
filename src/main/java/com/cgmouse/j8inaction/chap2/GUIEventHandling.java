@@ -19,6 +19,8 @@ public class GUIEventHandling {
             
         });
 
+        //using lambda expression
+        button.setOnAction((arg0)-> System.out.println("Hello World"));
        
 
         
