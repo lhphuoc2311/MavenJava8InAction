@@ -18,6 +18,11 @@ public class ExecutingBlockCodeWithRunnable {
         });
         t.run();
 
+        
+        //using lambda expression in Java 8
+        Thread t1 = new Thread(() -> System.out.println("Hello World"));
+        t1.run();
+
     }
 
     
