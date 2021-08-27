@@ -12,6 +12,7 @@ public class PuttingLambdasIntoPractice {
         
     }
 
+    //using execute-around pattern
     public static String processFile() throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader("data.txt"))) {
            
