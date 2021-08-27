@@ -1,7 +1,6 @@
 package com.cgmouse.j8inaction.chap2;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -13,6 +12,9 @@ public class PuttingLambdasIntoPractice {
 
         String str = processFile( br -> br.readLine());
         System.out.println(str);
+
+        String twoLines = processFile(br -> br.readLine() + br.readLine());
+        System.out.println(twoLines);
         
     }
 
